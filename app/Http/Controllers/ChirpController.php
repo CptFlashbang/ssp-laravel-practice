@@ -107,4 +107,20 @@ class ChirpController extends Controller
 
    }
 
+   /**
+    * Show the Chirps in Favourites
+    */
+    public function favourites(): View
+    {
+         $favourites = session('favourites', collect([]));
+         return view('chirps.favourites', [
+ 
+               'chirps' => $favourites,
+ 
+         ]);
+ 
+ 
+    }
+ 
+
 }
