@@ -32,4 +32,19 @@ Route::resource('chirps', ChirpController::class)
     ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']); 
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('chirps', ChirpController::class)
+        ->only(['index', 'store', 'edit', 'update']);
+    // ->middleware(['auth', 'verified']);
+    Route::post(
+        '/chirps/{chirp}/addToFavourites',
+        [ChirpController::class, 'addToFavourites']
+    )->name('chirps.favourites.add');
+    Route::get(
+        '/chirps/favourites',
+        [ChirpController::class, 'favourites']
+    )->name('chirps.favourites');
+    });
+     
+
 require __DIR__.'/auth.php';
