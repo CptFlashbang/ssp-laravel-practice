@@ -97,7 +97,7 @@ class ChirpController extends Controller
      /**
     * Add the Chirp to Favourites
     */
-   public function addToFavourites(): (Chirp $chirp): RedirectResponse
+   public function addToFavourites(Chirp $chirp): RedirectResponse
    {
         $favourites = session('favourites', collect([]));
         $favourites->push($chirp);
