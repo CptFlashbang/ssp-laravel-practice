@@ -14,7 +14,6 @@
                         <p class="mt-4 text-lg text-gray-900">{{ $chirp->message }}</p>
                     </div>
                             @if ($chirp->user->is(auth()->user()))
-                                <x-dropdown>
                             <x-dropdown>
                                 <x-slot name="trigger">
                                    <button>
@@ -44,7 +43,6 @@
                                     </form>
                                 </x-slot>
                             </x-dropdown>
-                                </x-dropdown>
                             @endif
                 </div>
             @endforeach
